@@ -1,0 +1,59 @@
+enable
+configure terminal
+interface GigabitEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+interface Serial0/3/0
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+exit
+router rip
+version 2
+no auto-summary
+network 192.168.1.0
+network 10.0.0.0
+end
+
+
+
+enable
+configure terminal
+interface GigabitEthernet0/0
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+interface Serial0/3/0
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+exit
+interface Serial0/3/1
+ip address 20.0.0.1 255.255.255.252
+no shutdown
+exit
+router rip
+version 2
+no auto-summary
+network 192.168.2.0
+network 10.0.0.0
+network 20.0.0.0
+end
+
+
+
+enable
+configure terminal
+interface GigabitEthernet0/0
+ip address 192.168.3.1 255.255.255.0
+no shutdown
+exit
+interface Serial0/3/0
+ip address 20.0.0.2 255.255.255.252
+no shutdown
+exit
+router rip
+version 2
+no auto-summary
+network 192.168.3.0
+network 20.0.0.0
+end
